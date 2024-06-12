@@ -3,13 +3,14 @@ from langchain_chroma import Chroma
 import langchain_community.document_loaders as loaders
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import CharacterTextSplitter
+from langchain_text_splitters.character import RecursiveCharacterTextSplitter
 
 # load the document and split it into chunks
 loader = loaders.TextLoader("test2.txt")
 documents = loader.load()
 
 # split it into chunks
-text_splitter = CharacterTextSplitter(chunk_size=10, chunk_overlap=0)
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(documents)
 
 # create the open-source embedding function
