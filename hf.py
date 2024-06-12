@@ -34,4 +34,6 @@ query = "How many masters title did Novak Djokovic have?"
 docs = db.similarity_search(query)
 
 # print results
+
 print(docs[0].page_content)
+
