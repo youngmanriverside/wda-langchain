@@ -4,10 +4,10 @@ from langchain_chroma import Chroma
 from hf import hf
 
 # load the database
-db = Chroma(persist_directory="chroma_db_10", embedding_function=hf)
+db = Chroma(persist_directory="training_courses_embeded", embedding_function=hf)
 
 # query it
-query = "烘焙"
+query = "烘焙課程"
 docs = db.similarity_search(query)
 
 # print results

@@ -135,6 +135,7 @@ wrapt = "1.16.0"
 yarl = "1.9.4"
 zipp = "3.19.2"
 langchain-huggingface = "^0.0.3"
+pandas = "^2.2.2"
 
 
 [build-system]
