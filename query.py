@@ -4,7 +4,7 @@ from langchain_chroma import Chroma
 from hf import hf
 
 # load the database
-db = Chroma(persist_directory="training_courses_embeded", embedding_function=hf)
+db = Chroma(persist_directory="training_courses_10", embedding_function=hf)
 
 # query it
 query = "烘焙課程"
