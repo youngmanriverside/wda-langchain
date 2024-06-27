@@ -27,7 +27,7 @@ hf = HuggingFaceEmbeddings(
 ) 
 
 # load it into Chroma
-db = Chroma.from_documents(docs, hf)
+db = Chroma.from_documents(docs, hf )
 
 # save the database
 # db = Chroma.from_documents(docs, hf, persist_directory="NovakDjokovic")
