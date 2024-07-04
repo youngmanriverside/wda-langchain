@@ -136,6 +136,8 @@ yarl = "1.9.4"
 zipp = "3.19.2"
 langchain-huggingface = "^0.0.3"
 pandas = "^2.2.2"
+qdrant-client = "^1.9.2"
+openai = "^1.35.7"
 
 
 [build-system]

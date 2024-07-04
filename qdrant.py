@@ -6,8 +6,8 @@ from openai import AzureOpenAI
 
 
 def connection(collection_name):
-    client = QdrantClient(url="yoururl"
-                          , api_key="yourkey")
+    client = QdrantClient(url=""
+                          , api_key="")
 
     # 建立 collection，在 qdrant 中 recreate_collection就是重新創建一個 collection
     client.recreate_collection(
