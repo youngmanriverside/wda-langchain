@@ -7,8 +7,6 @@ import numpy as np
 import pandas as pd
 from chromadb import Documents, EmbeddingFunction, Embeddings
 from langchain_chroma import Chroma
-import langchain_community.document_loaders as loaders
-from langchain_text_splitters.character import RecursiveCharacterTextSplitter
 
 
 # Config Parser
@@ -45,16 +43,12 @@ def create_chroma_db(documents, name):
     )
   return db
 
-# load the document and split it into chunks
-loader = loaders.TextLoader("/home/ren/user/project/wdaaichatbot/wda-langchain/training_courses.csv")
-documents = loader.load()
-
- # split it into chunks
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0,length_function=len,is_separator_regex = False) 
-docs = text_splitter.split_documents(documents)  #chunk_size=1800 ,training_courses.csv | chunk_size=500,traning_courses_10.csv 文本大小影響
 
 # Set up the DB
-db = create_chroma_db(docs,"geimini_training_courses_embeded")
+db = create_chroma_db("training_courses.csv", "geimini_training_courses_embeded")
+
+# Set up the DB
+#db = create_chroma_db(documents,"geimini_training_courses_embeded")
 
 def get_relevant_passage(query, db):
   passage = db.query(query_texts=[query], n_results=1)['documents'][0][0]
@@ -62,5 +56,5 @@ def get_relevant_passage(query, db):
 
 
 # Perform embedding search
-passage = get_relevant_passage("提供水電課程資訊", db)
+passage = get_relevant_passage("提供烘培課程資訊", db)
 print(passage)
